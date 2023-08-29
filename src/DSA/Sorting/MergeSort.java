@@ -14,7 +14,7 @@ public class MergeSort {
         if (low < up) {
             int mid = (low + up) / 2;     // get middle
             mergeSort(arr, low, mid);     // continue to divide lower half until reaches to one element (low = up)
-            mergeSort(arr, low + 1, up);  // continue to divide upper half until reaches to one element (low = up)
+            mergeSort(arr, mid + 1, up);  // continue to divide upper half until reaches to one element (low = up)
             merge(arr, low, mid, up);     // sort and merge halves
         }
     }
