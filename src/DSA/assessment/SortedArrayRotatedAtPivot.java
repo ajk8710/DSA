@@ -53,7 +53,7 @@ public class SortedArrayRotatedAtPivot {
                     left = mid + 1;                               // look up in sorted array
                 }
                 else {
-                    right = mid - 1;                               // else, go to other half (left side), get new mid and repeat
+                    right = mid - 1;                              // else, go to other half (left side), get new mid and repeat
                 }
             }
         }
