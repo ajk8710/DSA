@@ -27,8 +27,24 @@ public class LinkedList {
             }
         }
         primes.display();
+        
+        ml.insert(-1);
+        ml.display();
+        ml.insert(11);
+        ml.display();
+        ml.insert(5);
+        ml.display();
+        // System.out.println(ml.len());
+        /*
+        MyLinkedList ml2 = new MyLinkedList();
+        ml2.insert(5);
+        ml2.display();
+        ml2.insert(2);
+        ml2.display();
+        ml2.insert(10);
+        ml2.display();
+        */
     }
-
 }
 
 class Node {
@@ -43,6 +59,7 @@ class Node {
 class MyLinkedList {
     Node head;
     Node tail;
+    int len = 0;
     
     public void append(int data) {
         Node node = new Node(data);
@@ -55,6 +72,40 @@ class MyLinkedList {
             tail.next = node;  // tail's next points to new node
             tail = node;       // new node is now tail
         }
+        len++;
+    }
+    
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        
+        Node prev = null;
+        Node curr = head;
+        
+        if (len == 0) {  // if empty list
+            head = newNode;
+            tail = newNode;
+            len++;
+            return;
+        }
+        
+        while (curr != null && newNode.data > curr.data) {  // traverse pointers
+            prev = curr;
+            curr = curr.next;
+        }
+        
+        if (prev == null) {  // inserting at the beginning
+            newNode.next = curr;
+            head = newNode;
+        }
+        else if (curr == null) {  // inserting at the end
+            tail.next = newNode;
+            tail = newNode;
+        }
+        else {
+            newNode.next = curr;
+            prev.next = newNode;
+        }
+        len++;
     }
     
     public void display() {
@@ -64,6 +115,10 @@ class MyLinkedList {
             curr = curr.next;
         }
         System.out.println();
+    }
+    
+    public int len() {
+        return len;
     }
     
 }
