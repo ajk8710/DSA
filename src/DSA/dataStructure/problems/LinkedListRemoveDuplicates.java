@@ -9,8 +9,25 @@ package DSA.dataStructure.problems;
 public class LinkedListRemoveDuplicates {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+        MyLinkedList list = new MyLinkedList(new int[] {23, 28, 28, 35, 49, 49, 53, 53});
+        Node n1 = removeDuplicates(list);
+        list = new MyLinkedList(n1);
+        list.display();
         
+        MyLinkedList list2 = new MyLinkedList(new int[] {28, 28, 35, 49, 49, 53, 53});
+        Node n2 = removeDuplicates(list2);
+        list2 = new MyLinkedList(n2);
+        list2.display();
+        
+        MyLinkedList list3 = new MyLinkedList(new int[] {11, 11, 11, 11, 75, 75});
+        Node n3 = removeDuplicates(list3);
+        list3 = new MyLinkedList(n3);
+        list3.display();
+        
+        MyLinkedList list4 = new MyLinkedList(new int[] {1, 2, 3});
+        Node n4 = removeDuplicates(list4);
+        list4 = new MyLinkedList(n4);
+        list4.display();
     }
     
     public static Node removeDuplicates(MyLinkedList list) {

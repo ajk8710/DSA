@@ -75,13 +75,21 @@ class MyLinkedList {
     int len = 0;
     
     public MyLinkedList() {
-        
     }
     
     public MyLinkedList(int[] initialData) {
         for (int i : initialData) {
             this.append(i);
         }
+    }
+    
+    public MyLinkedList(Node head) {
+        this.head = head;
+        Node curr = head;
+        while (curr != null && curr.next != null) {
+            curr = curr.next;
+        }
+        this.tail = curr;
     }
     
     public void append(int data) {
