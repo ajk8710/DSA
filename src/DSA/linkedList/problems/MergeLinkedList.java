@@ -1,4 +1,4 @@
-package DSA.dataStructure.problems;
+package DSA.linkedList.problems;
 
 // Write a function that takes two ascending linked lists, and merges the two together into one linked list which is in ascending order.
 public class MergeLinkedList {

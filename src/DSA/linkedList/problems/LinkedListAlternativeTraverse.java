@@ -1,4 +1,4 @@
-package DSA.dataStructure.problems;
+package DSA.linkedList.problems;
 
 // Display alternative numbers of linked list.
 // L = [0, 11, 21, 13, 4, 15, 63 ,75, 84, 92]

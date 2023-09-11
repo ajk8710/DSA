@@ -1,4 +1,4 @@
-package DSA.dataStructure.problems;
+package DSA.linkedList.problems;
 
 public class ReverseLinkedList {
 

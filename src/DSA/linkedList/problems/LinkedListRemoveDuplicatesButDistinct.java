@@ -1,4 +1,4 @@
-package DSA.dataStructure.problems;
+package DSA.linkedList.problems;
 
 // Given a sorted linked list, delete all duplicates, leaving only distinct numbers.
 // Input : 23->28->28->35->49->49->53->53

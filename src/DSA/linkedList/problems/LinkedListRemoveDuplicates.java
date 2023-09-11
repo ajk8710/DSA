@@ -1,4 +1,4 @@
-package DSA.dataStructure.problems;
+package DSA.linkedList.problems;
 
 // Given a sorted linked list, delete all nodes that have duplicate numbers (all occurrences),
 // leaving only numbers that appear once in the original list.
