@@ -139,6 +139,26 @@ class MyLinkedList {
         len++;
     }
     
+    public void delete(int data) {
+        Node prev = null;
+        Node curr = head;
+        
+        while (curr != null && curr.data != data) {
+            prev = curr;
+            curr = curr.next;
+        }
+        
+        if (curr == null) {  // node with data is not found or list is empty
+            return;
+        }
+        else if (prev == null) {  // node with data is the first node
+            head = curr.next;
+        }
+        else {
+            prev.next = curr.next;
+        }
+    }
+    
     public void display() {
         Node curr = head;  // use curr, not head. head is not to be updated.
         while (curr != null) {

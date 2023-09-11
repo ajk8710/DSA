@@ -34,8 +34,9 @@ public class LinkedList {
         ml.display();
         ml.insert(5);
         ml.display();
-        // System.out.println(ml.len());
-        /*
+        
+        System.out.println(ml.len());
+        
         MyLinkedList ml2 = new MyLinkedList();
         ml2.insert(5);
         ml2.display();
@@ -43,7 +44,17 @@ public class LinkedList {
         ml2.display();
         ml2.insert(10);
         ml2.display();
-        */
+        
+        ml2.delete(1);
+        ml2.display();
+        ml2.delete(5);
+        ml2.display();
+        ml2.delete(2);
+        ml2.display();
+        ml2.delete(10);
+        ml2.display();
+        ml2.delete(6);
+        ml2.display();
     }
 }
 
@@ -95,7 +106,7 @@ class MyLinkedList {
         }
         len++;
     }
-    
+        
     public void insert(int data) {
         Node newNode = new Node(data);
         
@@ -127,6 +138,26 @@ class MyLinkedList {
             prev.next = newNode;
         }
         len++;
+    }
+    
+    public void delete(int data) {
+        Node prev = null;
+        Node curr = head;
+        
+        while (curr != null && curr.data != data) {
+            prev = curr;
+            curr = curr.next;
+        }
+        
+        if (curr == null) {  // node with data is not found or list is empty
+            return;
+        }
+        else if (prev == null) {  // node with data is the first node
+            head = curr.next;
+        }
+        else {
+            prev.next = curr.next;
+        }
     }
     
     public void display() {
