@@ -27,6 +27,11 @@ public class LinkedListRemoveDuplicatesButDistinct {
         Node n4 = removeDuplicatesButDistinct(list4);
         list4 = new MyLinkedList(n4);
         list4.display();
+        
+        MyLinkedList list5 = new MyLinkedList(new int[] {4, 4, 4, 4, 6, 8, 10, 12, 12});
+        Node n5 = removeDuplicatesButDistinct(list5);
+        list5 = new MyLinkedList(n5);
+        list5.display();
     }
     
     public static Node removeDuplicatesButDistinct(MyLinkedList list) {
