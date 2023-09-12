@@ -86,7 +86,7 @@ class MyLinkedList {
     public MyLinkedList(Node head) {
         this.head = head;
         Node curr = head;
-        while (curr != null && curr.next != null) {
+        while (curr != null && curr.next != null) {  // find a tail to set
             curr = curr.next;
         }
         this.tail = curr;
@@ -153,9 +153,17 @@ class MyLinkedList {
         }
         else if (prev == null) {  // node with data is the first node
             head = curr.next;
+            if (curr == tail) {   // if delete results in empty list
+                tail = null;
+            }
+            len--;
         }
         else {
             prev.next = curr.next;
+            if (curr == tail) {  // if deleted last item
+                tail = prev;
+            }
+            len--;
         }
     }
     

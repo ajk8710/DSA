@@ -48,11 +48,15 @@ public class LinkedList {
         ml2.delete(1);
         ml2.display();
         ml2.delete(5);
+        
         ml2.display();
+        System.out.println("length: " + ml2.len());
         ml2.delete(2);
         ml2.display();
+        System.out.println("length: " + ml2.len());
         ml2.delete(10);
         ml2.display();
+        System.out.println("length: " + ml2.len());
         ml2.delete(6);
         ml2.display();
     }
@@ -87,7 +91,7 @@ class MyLinkedList {
     public MyLinkedList(Node head) {
         this.head = head;
         Node curr = head;
-        while (curr != null && curr.next != null) {
+        while (curr != null && curr.next != null) {  // find a tail to set
             curr = curr.next;
         }
         this.tail = curr;
@@ -154,9 +158,17 @@ class MyLinkedList {
         }
         else if (prev == null) {  // node with data is the first node
             head = curr.next;
+            if (curr == tail) {   // if delete results in empty list
+                tail = null;
+            }
+            len--;
         }
         else {
             prev.next = curr.next;
+            if (curr == tail) {  // if deleted last item
+                tail = prev;
+            }
+            len--;
         }
     }
     
