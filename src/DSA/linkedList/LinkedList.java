@@ -85,6 +85,7 @@ class MyLinkedList {
     public MyLinkedList(int[] initialData) {
         for (int i : initialData) {
             this.append(i);
+            len++;
         }
     }
     
