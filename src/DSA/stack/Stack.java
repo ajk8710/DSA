@@ -150,6 +150,13 @@ class ArrayStack {
     private int top = -1;  // -1 represents empty stack.
     private int len = 0;   // number of elements in stack
     
+    public ArrayStack() {
+    }
+    
+    public ArrayStack(int size) {
+        arr = new int[size];
+    }
+    
     public int peek()  {
         if (top == -1) {
             throw new ArrayIndexOutOfBoundsException("Peek on empty stack");
