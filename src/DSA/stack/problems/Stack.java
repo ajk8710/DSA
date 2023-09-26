@@ -259,3 +259,54 @@ class ListStack {
         System.out.println("Length: " + len);
     }
 }
+
+class ArrayStackForDouble {
+    
+    private double arr[] = new double[5];
+    private int top = -1;  // -1 represents empty stack.
+    private int len = 0;   // number of elements in stack
+    
+    public ArrayStackForDouble() {
+    }
+    
+    public ArrayStackForDouble(int size) {
+        arr = new double[size];
+    }
+    
+    public double peek()  {
+        if (top == -1) {
+            throw new ArrayIndexOutOfBoundsException("Peek on empty stack");
+        }
+        return arr[top];
+    }
+    
+    public void push(double item) {
+        if (top == arr.length - 1) {  // already full
+            throw new ArrayIndexOutOfBoundsException("Push on full stack");
+        }
+        top++;
+        arr[top] = item;
+        len++;
+    }
+    
+    public double pop() {
+        if (top == -1) {
+            throw new ArrayIndexOutOfBoundsException("Pop on empty stack");
+        }
+        double curTop = arr[top];
+        top--;
+        len--;
+        return curTop;
+    }
+    
+    public int len() {
+        return len;
+    }
+    
+    public void display() {
+        for (int i = 0; i < len; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("Length: " + len);
+    }
+}
