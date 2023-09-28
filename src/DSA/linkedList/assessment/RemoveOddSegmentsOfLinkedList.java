@@ -72,6 +72,12 @@ public class RemoveOddSegmentsOfLinkedList {
         //           c
         //       p
         //       3
+        
+        // Let dummy node.next be head. (dummy.next is new head to return)
+        // Set prev to dummy, curr to head.
+        // Set count = 1. Advance curr while curr.data = curr.next.data. Increment count when advance.
+        // If count is even, move prev to curr. Advance curr.
+        // If count is odd, set prev.next to curr.next. Advance curr only.
         while (curr != null) {
             int count = 1;
             while (curr.next != null && curr.data == curr.next.data) {  // advance curr for segment
