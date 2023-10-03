@@ -80,5 +80,27 @@ public class ArrayQueue<T> {
         }
         return str;
     }
+    
+    public void display() {
+        if (front > -1) {
+            if (rear < front) {  // if to print from front to last index then 0 to rear
+                for (int i = front; i < arr.length; i++) {
+                    System.out.print(arr[i] + " ");
+                }
+                for (int i = 0; i <= rear; i++) {
+                    System.out.print(arr[i] + " ");
+                }
+            }
+            else {               // if to print from front to rear
+                for (int i = front; i <= rear; i++) {
+                    System.out.print(arr[i] + " ");
+                }
+            }
+            System.out.println();
+        }
+        else {
+            System.out.println("Queue is empty");
+        }
+    }
 
 }

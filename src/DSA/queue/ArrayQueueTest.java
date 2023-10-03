@@ -23,14 +23,19 @@ public class ArrayQueueTest {
         
         queue.dequeue();
         System.out.println("Dequeue: " + queue.toString());
+        queue.display();
         queue.dequeue();
         System.out.println("Dequeue: " + queue.toString());
+        queue.display();
         queue.dequeue();
         System.out.println("Dequeue: " + queue.toString());
+        queue.display();
         queue.dequeue();
         System.out.println("Dequeue: " + queue.toString());
+        queue.display();
         queue.dequeue();
         System.out.println("Dequeue: " + queue.toString());
+        queue.display();
         try {
             queue.dequeue();
         }
@@ -41,32 +46,43 @@ public class ArrayQueueTest {
         
         ArrayQueue<Character> que = new ArrayQueue<>(3);
         System.out.println(que.toString());
+        que.display();
         que.enqueue('0');
         System.out.println(que.toString());
+        que.display();
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.enqueue('0');
         que.enqueue('1');
         System.out.println(que.toString());
+        que.display();
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.enqueue('2');
         que.enqueue('3');
         System.out.println(que.toString());
+        que.display();
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.enqueue('4');
         System.out.println(que.toString());
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.dequeue();
         System.out.println("Dequeue: " + que.toString());
+        que.display();
         que.enqueue('a');
         System.out.println(que.toString());
         que.enqueue('b');
         System.out.println(que.toString());
+        que.display();
     }
 
 }
