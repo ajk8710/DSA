@@ -191,7 +191,7 @@ class ArrayStack {
         for (int i = 0; i < len; i++) {
             System.out.print(arr[i] + " ");
         }
-        System.out.println("Length: " + len);
+        System.out.println();
     }
 }
 
@@ -256,7 +256,7 @@ class ListStack {
             System.out.print(curr.val + " ");
             curr = curr.next;
         }
-        System.out.println("Length: " + len);
+        System.out.println();
     }
 }
 
@@ -307,6 +307,6 @@ class ArrayStackForDouble {
         for (int i = 0; i < len; i++) {
             System.out.print(arr[i] + " ");
         }
-        System.out.println("Length: " + len);
+        System.out.println();
     }
 }
