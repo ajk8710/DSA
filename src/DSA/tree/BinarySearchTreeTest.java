@@ -35,6 +35,21 @@ public class BinarySearchTreeTest {
         tree.printInorder();
         tree.printPreorder();
         tree.printPostorder();
+        System.out.println();
+        
+        System.out.println("Delete 3: ");
+        tree.delete(3);
+        tree.printInorder();
+        System.out.println("Delete 6: ");
+        tree.delete(6);
+        tree.printInorder();
+        System.out.println("Delete 0: ");
+        tree.delete(0);
+        tree.printInorder();
+        System.out.println("Delete 10: ");
+        tree.delete(10);
+        tree.printInorder();
+        
     }
 
 }
