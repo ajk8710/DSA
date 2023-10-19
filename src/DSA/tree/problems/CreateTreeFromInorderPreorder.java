@@ -1,6 +1,5 @@
 package DSA.tree.problems;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 import DSA.tree.MyBinaryTree2;
@@ -21,37 +20,46 @@ public class CreateTreeFromInorderPreorder {
         MyBinaryTree2 tree = new MyBinaryTree2(root);
         tree.printPreorder();
         tree.printInorder();
-        
+        tree.printPostorder();
     }
     
+    static HashMap<Integer, Integer> map = new HashMap<>();  // in-order map(value, index)
+    static int preIdx = 0;  // index of pre-order
+    
     public static TreeNode createTree(int[] preorder, int[] inorder) {
-
-        HashMap<Integer, Integer> map = new HashMap<>();  // in-order map(value, index)
+        
+        // map for O(1) look up on index of in-order value
         for (int i = 0; i < inorder.length; i++) {
             map.put(inorder[i], i);
         }
         
-        return createTreeRecur(preorder, inorder, map);
+        TreeNode root = createTreeRecur(preorder, inorder, 0, inorder.length - 1);
+        map = new HashMap<>();  // reset static variables
+        preIdx = 0;  // reset static variables
+
+        return root;
     }
     
-    public static TreeNode createTreeRecur(int[] preorder, int[] inorder, HashMap<Integer, Integer> map) {
-        if (preorder.length == 0 || inorder.length == 0) {
+    public static TreeNode createTreeRecur(int[] preorder, int[] inorder, int inStart, int inEnd) {
+        if (inStart > inEnd) {
             return null;
         }
         
-        System.out.print("in: ");
-        for (int i : preorder) {
-            System.out.print(i + " ");
+        // First index of pre-order is always a root of tree
+        // Starting from 0 to end of pre-order, construct node
+        int preVal = preorder[preIdx];
+        TreeNode node = new TreeNode(preVal);
+        preIdx++;
+        
+        if (inStart == inEnd) {
+            return node;
         }
-        System.out.println();
         
-        TreeNode root = new TreeNode(preorder[0]);  // first index of pre-order is always a root of tree
+        int inIdx = map.get(preVal);  // find position of value in in-order array
         
-        int mid = map.get(preorder[0]);  // find position of root in in-order array
+        node.left = createTreeRecur(preorder, inorder, inStart, inIdx - 1);  // left of inIdx
+        node.right = createTreeRecur(preorder, inorder, inIdx + 1, inEnd);  // right of inIdx
         
-        root.left = createTreeRecur(Arrays.copyOfRange(preorder, 1, mid + 1), Arrays.copyOfRange(inorder, 0, mid), map);
-        root.right = createTreeRecur(Arrays.copyOfRange(preorder, mid + 1, preorder.length), Arrays.copyOfRange(inorder, mid + 1, inorder.length), map);
-        
-        return root;
+        return node;
     }
 }
