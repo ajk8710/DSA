@@ -1,9 +1,9 @@
 package DSA.tree;
 
 public class TreeNode {
-    protected Object val;
-    protected TreeNode left;
-    protected TreeNode right;
+    public Object val;
+    public TreeNode left;
+    public TreeNode right;
     
     public TreeNode() {
     }
@@ -16,18 +16,6 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
-    }
-    
-    public Object val() {
-        return val;
-    }
-    
-    public TreeNode left() {
-        return left;
-    }
-    
-    public TreeNode right() {
-        return right;
     }
     
 }

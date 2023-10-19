@@ -12,6 +12,10 @@ public class MyBinaryTree2 {
         root = createTree(arr, 0);
     }
     
+    public MyBinaryTree2(TreeNode root) {
+        this.root = root;
+    }
+    
     public TreeNode createTree(Object[] arr, int i) {
         TreeNode Node = null;
         if (i < arr.length) {  // terminate condition
