@@ -1,9 +1,9 @@
 package DSA.tree;
 
 public class BSTNode {
-    protected int val;
-    protected BSTNode left;
-    protected BSTNode right;
+    public int val;
+    public BSTNode left;
+    public BSTNode right;
     
     public BSTNode() {
     }
@@ -17,17 +17,5 @@ public class BSTNode {
         this.left = left;
         this.right = right;
     }
-    
-    public int val() {
-        return val;
-    }
-    
-    public BSTNode left() {
-        return left;
-    }
-    
-    public BSTNode right() {
-        return right;
-    }
-    
+        
 }

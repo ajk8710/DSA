@@ -1,7 +1,7 @@
 package DSA.tree;
 
 public class BinarySearchTree {
-    BSTNode root;
+    public BSTNode root;
     
     public void insertIterative(int val) {
         if (root == null) {
