@@ -1,5 +1,9 @@
 package DSA.tree;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /*
 Single Rotation: Pivot is right (left) heavy & right (left) child is also right (left) heavy: same sign (+/-)
     If right (left) heavy, rotate left (right) on pivot: pivot goes down, child goes up
@@ -177,4 +181,52 @@ public class AVLTree {
         System.out.print(node.val + " ");
         inorder(node.right);
     }
+    
+    public void printLevelOrder() {
+        List<List<Integer>> levelOrderList = levelOrder(root);
+        System.out.println(levelOrderList);
+    }
+    
+    // Level Order Traversal is Breath First Search using Queue.
+    // Push root to queue.
+    // While queue is not null:
+    //   For the current length of queue:
+    //     Poll node from queue. Print the value of node.
+    //     Push left then right child of node to queue. (these children are not the current level >= length of queue)
+    // Repeat until queue is empty.
+    private List<List<Integer>> levelOrder(AVLNode root) {
+        List<List<Integer>> returnList = new LinkedList<>();  // return list
+        
+        if (root == null) {  // if root is null, return empty return list
+            return returnList;
+        }
+
+        Queue<AVLNode> queue = new LinkedList<>();
+        queue.add(root);  // queue.add(null) prevented from above code
+        
+        while (!queue.isEmpty()) {
+            List<Integer> level = new LinkedList<Integer>();  // list for current level
+            
+            int qLen = queue.size();  // for current level
+            for (int i = 0; i < qLen; i++) {
+                
+                AVLNode node = queue.poll();  // poll nodes of current level
+                level.add(node.val);
+                
+                if (node.left != null) {  // do not push null nodes to queue
+                    queue.add(node.left);  // newly pushed nodes are not current level (i greater or equal than qLen)
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            
+            // if (!level.isEmpty()) {  // queue.add(null) prevented. What's in queue is never null node, thus to be added to level list.
+                returnList.add(level);  // i.e. if queue is not empty, there is node to be added to level list: No need for "if level not empty"
+            // }
+        }
+        
+        return returnList;
+    }
+    
 }
