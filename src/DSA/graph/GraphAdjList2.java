@@ -72,6 +72,15 @@ public class GraphAdjList2 {
         }
     }
     
+    public class Vertex2 {
+        public String vName;
+        public Vertex2 adjVertex;
+        
+        public Vertex2 (String vName) {
+            this.vName = vName;
+        }
+    }
+    
     public static void main(String[] args) {
         String[] vertices = new String[] {"V7", "V2", "V3", "V9", "V5", "V6"};
         GraphAdjList2 graph = new GraphAdjList2(vertices);
@@ -84,13 +93,4 @@ public class GraphAdjList2 {
         graph.printAdjList();
     }
     
-}
-
-class Vertex2 {
-    String vName;
-    Vertex2 adjVertex;
-    
-    Vertex2 (String vName) {
-        this.vName = vName;
-    }
 }
