@@ -30,7 +30,7 @@ public class Dijkstra {
         for (int i = 0; i < graph.adjList.length; i++) {
             System.out.print(graph.adjList[i].vName + ": Weight from V1: " + graph.adjList[i].weightFromStart);
             
-            System.out.print(", SP to V1: ");  // print shortest path, following predecessor
+            System.out.print(", SP from V1: ");  // print shortest path, following predecessor
             String predecessor = graph.adjList[i].predecessor;
             while (predecessor != null) {
                 int predecessorIdx = graph.vName_vIdx.get(predecessor);  // get index of predecessor in adjList.
@@ -78,22 +78,25 @@ public class Dijkstra {
                     minWeightFromStart = adjList[j].weightFromStart;
                 }
             }
-            adjList[minVIdx].foundSP = true;  // Shortest Path to N is found
             
-            // 3. For each neighbor (NN) of node N:
-            curr = adjList[minVIdx];  // curr = node N
-            while (curr.adjVertex != null) {
-                int adjVertexIdx = vName_vIdx.get(curr.adjVertex.vName);  // index of neighbor in adjList
+            if (minVIdx != null) {  // if starting-vertex has other vertex that cannot be reached
+                adjList[minVIdx].foundSP = true;  // Shortest Path to N is found
                 
-                // 3-1. If NN.foundSP = false, then NN.weightFromStart = min(NN.weightFromStart, N.weightFromStart + weight from N to NN)
-                if (adjList[adjVertexIdx].foundSP == false) {
-                    int temp = adjList[adjVertexIdx].weightFromStart;
-                    adjList[adjVertexIdx].weightFromStart = Math.min(adjList[adjVertexIdx].weightFromStart, adjList[minVIdx].weightFromStart + curr.adjVertex.weightFromAdj);
-                    if (temp != adjList[adjVertexIdx].weightFromStart) {  // if weightFromStart updated
-                        adjList[adjVertexIdx].predecessor = adjList[minVIdx].vName;  // update predecessor that leads to starting vertex in Shortest Path
+                // 3. For each neighbor (NN) of node N:
+                curr = adjList[minVIdx];  // curr = node N
+                while (curr.adjVertex != null) {
+                    int adjVertexIdx = vName_vIdx.get(curr.adjVertex.vName);  // index of neighbor in adjList
+                    
+                    // 3-1. If NN.foundSP = false, then NN.weightFromStart = min(NN.weightFromStart, N.weightFromStart + weight from N to NN)
+                    if (adjList[adjVertexIdx].foundSP == false) {
+                        int temp = adjList[adjVertexIdx].weightFromStart;
+                        adjList[adjVertexIdx].weightFromStart = Math.min(adjList[adjVertexIdx].weightFromStart, adjList[minVIdx].weightFromStart + curr.adjVertex.weightFromAdj);
+                        if (temp != adjList[adjVertexIdx].weightFromStart) {  // if weightFromStart updated
+                            adjList[adjVertexIdx].predecessor = adjList[minVIdx].vName;  // update predecessor that leads to starting vertex in Shortest Path
+                        }
                     }
+                    curr = curr.adjVertex;
                 }
-                curr = curr.adjVertex;
             }
         }
     }
