@@ -33,7 +33,7 @@ rotate the input matrix in-place such that it becomes:
   [16, 7,10,11]
 ]
  */
-public class rotateArray90Degree {    
+public class RotateArray90Degree {    
     /*
     [ [ 5, 1, 9,11], 5->11, 11->16, 16->15, 15->5, then 1->10, 10->12, 12->13, 13->1,
       [ 2, 4, 8,10],   then 9->7, 7->14, 14->2, 2->9 This is outer square, runs through (rightBound(3) - leftBound(0)) times.
